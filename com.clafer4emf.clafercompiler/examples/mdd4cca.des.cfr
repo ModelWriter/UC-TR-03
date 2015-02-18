@@ -1,0 +1,90 @@
+abstract 0 .. * c0_NamedElement : clafer 0 .. * {
+  0 .. * c0_name : string 1 .. 1 {
+    }
+  }
+abstract 0 .. * c0_ContentModel : c0_NamedElement 0 .. * {
+  0 .. * c0_web ->> c0_Web 1 .. * {
+    }
+  [all disj x ;
+  y : this . c0_web | x . ref != y . ref]0 .. * c0_ownedEntityModel ->> c0_EntityModel 0 .. 1 {
+    }
+  [all disj x ;
+  y : this . c0_ownedEntityModel | x . ref != y . ref]
+}
+abstract 0 .. * c0_Web : c0_NamedElement 0 .. * {
+  0 .. * c0_ownedList : c0_List 0 .. * {
+    }
+  0 .. * c0_ownedWeb : c0_Web 0 .. * {
+    }
+  }
+abstract 0 .. * c0_List : c0_NamedElement 0 .. * {
+  0 .. * c0_contentTypes ->> c0_ContentType 0 .. * {
+    }
+  [all disj x ;
+  y : this . c0_contentTypes | x . ref != y . ref]1 .. 1 c0_Type : clafer 1 .. 1 {
+    0 .. * c0_Library : clafer 0 .. 1 {
+      }
+    0 .. * c1_List : clafer 0 .. 1 {
+      }
+    }
+  }
+abstract 0 .. * c0_ContentType : c0_NamedElement 0 .. * {
+  0 .. * c0_isAbstract : integer 0 .. 1 {
+    }
+  0 .. * c0_ownedField : c0_Field 0 .. * {
+    }
+  }
+abstract 0 .. * c0_Field : c0_NamedElement 0 .. * {
+  1 .. 1 c1_Type : clafer 1 .. 1 {
+    0 .. * c0_Number : clafer 0 .. 1 {
+      }
+    0 .. * c0_Boolean : clafer 0 .. 1 {
+      }
+    0 .. * c0_Text : clafer 0 .. 1 {
+      }
+    0 .. * c0_Reference : clafer 0 .. 1 {
+      0 .. * c0_contentType ->> c0_ContentType 1 .. 1 {
+        }
+      [all disj x ;
+      y : this . c0_contentType | x . ref != y . ref]
+    }
+    }
+  0 .. * c0_lookupEntity ->> c0_Entity 0 .. 1 {
+    }
+  [all disj x ;
+  y : this . c0_lookupEntity | x . ref != y . ref]
+}
+0 .. * c0_EgeLibrary : c0_ContentModel 1 .. 1 {
+  [this . (c0_name . ref)= "EGE_Kutuphanesi"][this . (c0_web . ref)= c0_LibraryWebSite]
+}
+0 .. * c0_LibraryWebSite : c0_Web 1 .. 1 {
+  [this . (c0_name . ref)= "Kutuphane_Web_Sitesi"]0 .. * c0_TezKitapligi : c0_List 1 .. 1 {
+    [some this . c0_Type . c0_Library][this . (c0_name . ref)= "Tez_Kitapligi"][this . (c0_contentTypes . ref)= c0_Dissertation ++ c0_MasterThesis]
+  }
+  0 .. * c0_OgrenciListesi : c0_List 1 .. 1 {
+    [some this . c0_Type . c1_List][this . (c0_name . ref)= "Ogrenci_Listesi"][this . (c0_contentTypes . ref)= c0_Student]
+  }
+  }
+0 .. * c0_Student : c0_ContentType 1 .. 1 {
+  [this . (c0_name . ref)= "Ogrenci"]0 .. * c0_studentNo : c0_Field 1 .. 1 {
+    [some this . c1_Type . c0_Number][this . (c0_name . ref)= "Ogrenci_No"]
+  }
+  0 .. * c0_studentName : c0_Field 1 .. 1 {
+    [some this . c1_Type . c0_Text][this . (c0_name . ref)= "Ogrenci_Ismi"]
+  }
+  0 .. * c0_isAlumni : c0_Field 1 .. 1 {
+    [some this . c1_Type . c0_Boolean][this . (c0_name . ref)= "Mezun_Mu"]
+  }
+  }
+abstract 0 .. * c0_Thesis : c0_ContentType 0 .. * {
+  [this . (c0_name . ref)= "Tez"]0 .. * c0_thesisName : c0_Field 1 .. 1 {
+    [some this . c1_Type . c0_Text][this . (c0_name . ref)= "Tez_Adi"]
+  }
+  0 .. * c0_student : c0_Field 1 .. 1 {
+    [some this . c1_Type . c0_Reference][this . (c0_name . ref)= "Ogrenci"][this . c1_Type . c0_Reference . (c0_contentType . ref)= c0_Student]
+  }
+  }
+0 .. * c0_MasterThesis : c0_Thesis 1 .. 1 {
+  }
+0 .. * c0_Dissertation : c0_Thesis 1 .. 1 {
+  }

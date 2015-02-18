@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition id="com.clafer4emf.command.ui.test.clafer">
+	      <adapt type="org.eclipse.core.resources.IResource">
+	         <or>
+	             <test property="org.eclipse.core.resources.extension"
+	                   value="cfr">
+	             </test>
+	         </or>
+	      </adapt>
+	   </definition>
+	   
+	   <definition id="com.clafer4emf.command.ui.test.ecore">
+	      <adapt type="org.eclipse.core.resources.IResource">
+	         <or>
+	             <test property="org.eclipse.core.resources.extension"
+	                   value="ecore">
+	             </test>
+	         </or>
+	      </adapt>
+	   </definition>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.clafer4emf.command.ui.clafer2ecore"
+            name="Transform Clafer to Ecore">
+      </command>
+      <command
+            id="com.clafer4emf.command.ui.compile2alloy"
+            name="Compile to Alloy">
+      </command>
+      <command
+            id="com.clafer4emf.command.ui.generatedesugared"
+            name="Generate Desugared Clafer">
+      </command>
+      <command
+            id="com.clafer4emf.command.ui.ecore2clafer"
+            name="Transform Ecore to Clafer">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.clafer4emf.command.ui.handlers.Clafer2EcoreHandler"
+            commandId="com.clafer4emf.command.ui.clafer2ecore">
+      </handler>
+      <handler
+            class="com.clafer4emf.command.ui.handlers.Compile2AlloyHandler"
+            commandId="com.clafer4emf.command.ui.compile2alloy">
+      </handler>
+      <handler
+            class="com.clafer4emf.command.ui.handlers.GenerateDesugaredClaferHandler"
+            commandId="com.clafer4emf.command.ui.generatedesugared">
+      </handler>
+      <handler
+            class="com.clafer4emf.command.ui.handlers.Ecore2ClaferHandler"
+            commandId="com.clafer4emf.command.ui.ecore2clafer">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               label="clafer4emf">
+            <command
+                  commandId="com.clafer4emf.command.ui.clafer2ecore"
+                  label="Transform Clafer to Ecore"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <reference
+                              definitionId="com.clafer4emf.command.ui.test.clafer">
+                        </reference>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="com.clafer4emf.command.ui.compile2alloy"
+                  label="Compile to Alloy"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <reference
+                              definitionId="com.clafer4emf.command.ui.test.clafer">
+                        </reference>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="com.clafer4emf.command.ui.generatedesugared"
+                  label="Generate Desugared Clafer"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <reference
+                              definitionId="com.clafer4emf.command.ui.test.clafer">
+                        </reference>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="com.clafer4emf.command.ui.ecore2clafer"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <reference
+                              definitionId="com.clafer4emf.command.ui.test.ecore">
+                        </reference>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

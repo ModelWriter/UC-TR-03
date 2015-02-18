@@ -1,0 +1,4 @@
+enum NorthAmericanCountry = Canada | USA | Mexico
+
+abstract Person
+	Country -> NorthAmericanCountry

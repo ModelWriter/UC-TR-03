@@ -1,0 +1,9 @@
+abstract Person
+	xor maritalStatus
+		neverMarried
+		married 
+			spouse -> Person
+		divorced
+	or gender
+		male
+		female

@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: com.clafer4emf.command.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.clafer4emf.command.ui.Activator
+Bundle-Vendor: CLAFER4EMF
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.expressions;bundle-version="3.4.600",
+ org.eclipse.core.resources,
+ com.clafer4emf;bundle-version="1.0.0",
+ com.clafer4emf.util;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

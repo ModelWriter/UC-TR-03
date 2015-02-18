@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com.clafer4emf.transformations.point">
+      <transformation
+            class="com.clafer4emf.transformations.atl.runner.ATLTransformation"
+            id="transformation.atl">
+      </transformation>
+   </extension>
+
+</plugin>

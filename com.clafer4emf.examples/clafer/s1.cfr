@@ -1,0 +1,7 @@
+abstract Person
+	name : string
+	age -> integer
+
+Student : Person
+	a : integer
+		b : Person

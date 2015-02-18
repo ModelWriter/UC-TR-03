@@ -1,0 +1,15 @@
+-- @path CLAFER=/com.clafer4emf.metamodels.clafer/model/clafer.ecore
+-- @path ECORE=/com.clafer4emf.metamodels.ecore/model/ecore.ecore
+
+
+module transformation;
+create OUT: ECORE from IN: CLAFER;
+
+rule Clafer2EPackage {
+	from
+		clafer: CLAFER!Clafer
+	to
+		ecore: ECORE!EPackage (
+			name <- clafer.name
+		)
+}

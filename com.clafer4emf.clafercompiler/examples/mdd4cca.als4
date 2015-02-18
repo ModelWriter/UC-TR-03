@@ -1,0 +1,184 @@
+/*
+All clafers: 37 | Abstract: 7 | Concrete: 25 | References: 5
+Constraints: 27
+Goals: 0
+Global scope: 1..*
+Can skip resolver: False
+*/
+
+pred show {}
+run show for 1 but 10 c0_Boolean, 3 c0_ContentType, 10 c0_Field, 4 c0_Library, 4 c0_List, 20 c0_NamedElement, 10 c0_Number, 10 c0_Reference, 10 c0_Text, 2 c0_Thesis, 4 c0_Type, 2 c0_Web, 10 c0_contentType, 8 c0_contentTypes, 3 c0_isAbstract, 10 c0_lookupEntity, 20 c0_name, 3 c0_ownedField, 2 c0_ownedList, 2 c0_student, 2 c0_thesisName, 2 c0_web, 4 c1_List, 10 c1_Type
+
+abstract sig c0_NamedElement
+{ r_c0_name : one c0_name }
+
+sig c0_name
+{ ref : one Int }
+{ one @r_c0_name.this }
+
+abstract sig c0_ContentModel extends c0_NamedElement
+{ r_c0_web : some c0_web
+, r_c0_ownedEntityModel : lone c0_ownedEntityModel }
+{ all disj x, y : this.@r_c0_web | (x.@ref) != (y.@ref)
+  all disj x, y : this.@r_c0_ownedEntityModel | (x.@ref) != (y.@ref) }
+
+sig c0_web
+{ ref : one c0_Web }
+{ one @r_c0_web.this }
+
+sig c0_ownedEntityModel
+{ ref : one c0_EntityModel }
+{ one @r_c0_ownedEntityModel.this }
+
+abstract sig c0_Web extends c0_NamedElement
+{ r_c0_ownedList : set c0_ownedList
+, r_c0_ownedWeb : set c0_ownedWeb }
+
+sig c0_ownedList extends c0_List
+{}
+{ one @r_c0_ownedList.this }
+
+sig c0_ownedWeb extends c0_Web
+{}
+{ one @r_c0_ownedWeb.this }
+
+abstract sig c0_List extends c0_NamedElement
+{ r_c0_contentTypes : set c0_contentTypes
+, r_c0_Type : one c0_Type }
+{ all disj x, y : this.@r_c0_contentTypes | (x.@ref) != (y.@ref) }
+
+sig c0_contentTypes
+{ ref : one c0_ContentType }
+{ one @r_c0_contentTypes.this }
+
+sig c0_Type
+{ r_c0_Library : lone c0_Library
+, r_c1_List : lone c1_List }
+{ one @r_c0_Type.this
+  let children = (r_c0_Library + r_c1_List) | one children }
+
+sig c0_Library
+{}
+{ one @r_c0_Library.this }
+
+sig c1_List
+{}
+{ one @r_c1_List.this }
+
+abstract sig c0_ContentType extends c0_NamedElement
+{ r_c0_isAbstract : lone c0_isAbstract
+, r_c0_ownedField : set c0_ownedField }
+
+sig c0_isAbstract
+{ ref : one Int }
+{ one @r_c0_isAbstract.this }
+
+sig c0_ownedField extends c0_Field
+{}
+{ one @r_c0_ownedField.this }
+
+abstract sig c0_Field extends c0_NamedElement
+{ r_c1_Type : one c1_Type
+, r_c0_lookupEntity : lone c0_lookupEntity }
+{ all disj x, y : this.@r_c0_lookupEntity | (x.@ref) != (y.@ref) }
+
+sig c1_Type
+{ r_c0_Number : lone c0_Number
+, r_c0_Boolean : lone c0_Boolean
+, r_c0_Text : lone c0_Text
+, r_c0_Reference : lone c0_Reference }
+{ one @r_c1_Type.this
+  let children = (r_c0_Number + r_c0_Boolean + r_c0_Text + r_c0_Reference) | one children }
+
+sig c0_Number
+{}
+{ one @r_c0_Number.this }
+
+sig c0_Boolean
+{}
+{ one @r_c0_Boolean.this }
+
+sig c0_Text
+{}
+{ one @r_c0_Text.this }
+
+sig c0_Reference
+{ r_c0_contentType : one c0_contentType }
+{ one @r_c0_Reference.this
+  all disj x, y : this.@r_c0_contentType | (x.@ref) != (y.@ref) }
+
+sig c0_contentType
+{ ref : one c0_ContentType }
+{ one @r_c0_contentType.this }
+
+sig c0_lookupEntity
+{ ref : one c0_Entity }
+{ one @r_c0_lookupEntity.this }
+
+one sig c0_EgeLibrary extends c0_ContentModel
+{}
+{ (this.(@r_c0_name.@ref)) = 0
+  (this.(@r_c0_web.@ref)) = c0_LibraryWebSite }
+
+one sig c0_LibraryWebSite extends c0_Web
+{ r_c0_TezKitapligi : one c0_TezKitapligi
+, r_c0_OgrenciListesi : one c0_OgrenciListesi }
+{ (this.(@r_c0_name.@ref)) = 1 }
+
+one sig c0_TezKitapligi extends c0_List
+{}
+{ some (this.@r_c0_Type).@r_c0_Library
+  (this.(@r_c0_name.@ref)) = 2
+  (this.(@r_c0_contentTypes.@ref)) = (c0_Dissertation + c0_MasterThesis) }
+
+one sig c0_OgrenciListesi extends c0_List
+{}
+{ some (this.@r_c0_Type).@r_c1_List
+  (this.(@r_c0_name.@ref)) = 3
+  (this.(@r_c0_contentTypes.@ref)) = c0_Student }
+
+one sig c0_Student extends c0_ContentType
+{ r_c0_studentNo : one c0_studentNo
+, r_c0_studentName : one c0_studentName
+, r_c0_isAlumni : one c0_isAlumni }
+{ (this.(@r_c0_name.@ref)) = 4 }
+
+one sig c0_studentNo extends c0_Field
+{}
+{ some (this.@r_c1_Type).@r_c0_Number
+  (this.(@r_c0_name.@ref)) = 5 }
+
+one sig c0_studentName extends c0_Field
+{}
+{ some (this.@r_c1_Type).@r_c0_Text
+  (this.(@r_c0_name.@ref)) = 6 }
+
+one sig c0_isAlumni extends c0_Field
+{}
+{ some (this.@r_c1_Type).@r_c0_Boolean
+  (this.(@r_c0_name.@ref)) = 7 }
+
+abstract sig c0_Thesis extends c0_ContentType
+{ r_c0_thesisName : one c0_thesisName
+, r_c0_student : one c0_student }
+{ (this.(@r_c0_name.@ref)) = 8 }
+
+sig c0_thesisName extends c0_Field
+{}
+{ one @r_c0_thesisName.this
+  some (this.@r_c1_Type).@r_c0_Text
+  (this.(@r_c0_name.@ref)) = 9 }
+
+sig c0_student extends c0_Field
+{}
+{ one @r_c0_student.this
+  some (this.@r_c1_Type).@r_c0_Reference
+  (this.(@r_c0_name.@ref)) = 4
+  (((this.@r_c1_Type).@r_c0_Reference).(@r_c0_contentType.@ref)) = c0_Student }
+
+one sig c0_MasterThesis extends c0_Thesis
+{}
+
+one sig c0_Dissertation extends c0_Thesis
+{}
+

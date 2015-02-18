@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Runner
+Bundle-SymbolicName: com.clafer4emf.transformations.atl.runner;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.clafer4emf.transformations.atl.runner.Activator
+Bundle-Vendor: CLAFER4EMF
+Require-Bundle: org.eclipse.core.runtime,
+ com.clafer4emf.util,
+ com.clafer4emf.transformations;bundle-version="1.0.0",
+ com.clafer4emf.metamodels.clafer;bundle-version="0.1.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.m2m.atl.core;bundle-version="3.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: com.clafer4emf.transformations.atl.runner

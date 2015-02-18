@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<cfr:ClaferModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cfr="http://clafer4emf.com/metamodels/clafer" xsi:schemaLocation="http://clafer4emf.com/metamodels/clafer clafer.ecore" name="">
+  <cElements name="NamedElement" isAbstract="true">
+    <cElements name="name" cTarget="//@cElements.3">
+      <cCardinality Min="1" Max="1"/>
+      <cGroupCardinality Max="-1"/>
+    </cElements>
+    <cCardinality Max="-1"/>
+    <cGroupCardinality Max="-1"/>
+  </cElements>
+  <cElements name="ContentModel" cSuper="//@cElements.0">
+    <cElements name="web" cTarget="//@cElements.2">
+      <cCardinality Min="1" Max="-1"/>
+      <cGroupCardinality Max="-1"/>
+    </cElements>
+    <cCardinality Max="-1"/>
+    <cGroupCardinality Max="-1"/>
+  </cElements>
+  <cElements name="Web" isAbstract="true" cSuper="//@cElements.0">
+    <cCardinality Max="-1"/>
+    <cGroupCardinality Max="-1"/>
+  </cElements>
+  <cElements name="string" isAbstract="true"/>
+  <cElements name="boolean" isAbstract="true"/>
+  <cElements name="integer" isAbstract="true"/>
+</cfr:ClaferModel>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.clafer4emf.feature_1.0.0.qualifier.jar" id="com.clafer4emf.feature" version="1.0.0.qualifier">
+      <category name="com.clafer4emf.feature.category"/>
+   </feature>
+   <category-def name="com.clafer4emf.feature.category" label="clafer4emf"/>
+</site>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated clafer -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.clafer4emf.clafer.presentation.ClaferModelWizardID"
+            name="%_UI_ClaferModelWizard_label"
+            class="com.clafer4emf.clafer.presentation.ClaferModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ClaferModelFile.gif">
+         <description>%_UI_ClaferModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated clafer -->
+      <editor
+            id="com.clafer4emf.clafer.presentation.ClaferEditorID"
+            name="%_UI_ClaferEditor_label"
+            icon="icons/full/obj16/ClaferModelFile.gif"
+            extensions="clafer"
+            class="com.clafer4emf.clafer.presentation.ClaferEditor"
+            contributorClass="com.clafer4emf.clafer.presentation.ClaferActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

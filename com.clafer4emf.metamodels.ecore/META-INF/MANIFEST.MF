@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ecore
+Bundle-SymbolicName: com.clafer4emf.metamodels.ecore
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.clafer4emf.metamodels.ecore.Activator
+Bundle-Vendor: CLAFER4EMF
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

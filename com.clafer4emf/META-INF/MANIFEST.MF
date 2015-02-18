@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Clafer4emf
+Bundle-SymbolicName: com.clafer4emf
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.clafer4emf.clafercompiler;bundle-version="1.0.0",
+ org.eclipse.emf.ecore,
+ com.clafer4emf.metamodels.clafer,
+ com.clafer4emf.util,
+ com.clafer4emf.transformations,
+ com.clafer4emf.pref,
+ com.google.guava,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtext.xbase.lib
+Export-Package: com.clafer4emf
+Bundle-ClassPath: .,lib/chocosolver-0.3.6.1-jar-with-dependencies.jar
+

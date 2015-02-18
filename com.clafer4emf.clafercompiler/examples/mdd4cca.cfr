@@ -1,0 +1,74 @@
+//Feature Model
+
+abstract NamedElement
+	name: string
+	
+abstract ContentModel : NamedElement
+    web -> Web +
+    ownedEntityModel -> EntityModel ? 
+
+abstract Web : NamedElement
+	ownedList : List *
+	ownedWeb : Web *
+
+abstract List : NamedElement
+    contentTypes -> ContentType *
+    xor Type 
+		Library
+		List
+
+abstract ContentType : NamedElement
+    isAbstract : integer ?
+    ownedField : Field *
+        
+abstract Field: NamedElement
+    xor Type
+        Number
+        Boolean
+        Text
+        Reference
+            contentType -> ContentType
+    lookupEntity -> Entity ?
+
+abstract EntityModel : NamedElement 
+    database: string
+    entities: Entity *
+
+abstract Entity: NamedElement
+    baseType -> Entity ? 
+    lookupContent: ContentType *
+
+//Configuration
+
+EgeLibrary : ContentModel
+    [name = "EGE_Kutuphanesi"]
+    [web = LibraryWebSite]
+
+LibraryWebSite : Web
+    [name = "Kutuphane_Web_Sitesi"]
+    TezKitapligi : List
+        [Library][name = "Tez_Kitapligi"]
+        [contentTypes = Dissertation, MasterThesis]
+    OgrenciListesi : List
+        [List][name = "Ogrenci_Listesi"]
+        [contentTypes = Student]
+
+Student : ContentType
+    [name = "Ogrenci"]
+    studentNo : Field
+        [Number][name = "Ogrenci_No"]
+    studentName : Field
+        [Text][name = "Ogrenci_Ismi"]
+    isAlumni : Field
+        [Boolean][name = "Mezun_Mu"]
+        
+abstract Thesis: ContentType
+    [name = "Tez"]
+    thesisName: Field
+        [Text][name = "Tez_Adi"]
+    student: Field
+        [Reference][name = "Ogrenci"]
+        [contentType = Student]
+
+MasterThesis: Thesis
+Dissertation: Thesis

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated clafer -->
+      <package
+            uri="http://clafer4emf.com/metamodels/clafer"
+            class="com.clafer4emf.clafer.ClaferPackage"
+            genModel="model/clafer.genmodel"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.clafer4emf.transformations.point" name="Transformation Extension" schema="schema/com.clafer4emf.transformations.point.exsd"/>
+
+</plugin>

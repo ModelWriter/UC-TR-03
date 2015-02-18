@@ -1,0 +1,24 @@
+abstract NamedElement
+	name: string
+
+abstract Web : NamedElement
+	ownedList : List *
+	ownedWeb : Web *
+
+abstract List : NamedElement
+	contentTypes -> ContentType *
+	xor Type
+		Library
+		List
+
+abstract ContentType : NamedElement
+	isAbstract : integer ?
+	ownedField : Field *
+
+abstract Field: NamedElement
+	xor Type
+		Number
+		Boolean
+		Text
+		Reference
+			contentType -> ContentType

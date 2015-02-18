@@ -1,0 +1,6 @@
+abstract Web
+    ownedList : List
+    	prop2
+
+abstract List
+    prop1

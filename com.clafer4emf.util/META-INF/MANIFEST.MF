@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Util
+Bundle-SymbolicName: com.clafer4emf.util
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: CLAFER4EMF
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.core.runtime;bundle-version="3.10.0",
+ org.eclipse.ui;bundle-version="3.106.0",
+ org.eclipse.core.resources;bundle-version="3.9.0",
+ org.eclipse.m2m.atl.core;bundle-version="3.5.0",
+ com.google.guava,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtext.xbase.lib
+Export-Package: com.clafer4emf.util.atl,
+ com.clafer4emf.util.bundle,
+ com.clafer4emf.util.ecore,
+ com.clafer4emf.util.emf,
+ com.clafer4emf.util.file,
+ com.clafer4emf.util.plugin,
+ com.clafer4emf.util.resource,
+ com.clafer4emf.util.uri,
+ com.clafer4emf.util.annotation
+Bundle-ClassPath: .,lib/commons-io-2.4-sources.jar,lib/commons-io-2.4.jar,lib/zip4j_1.3.2.jar
+

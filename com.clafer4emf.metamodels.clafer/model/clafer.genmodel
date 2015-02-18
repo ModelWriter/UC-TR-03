@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.clafer4emf.metamodels.clafer/src" modelPluginID="com.clafer4emf.metamodels.clafer"
+    modelName="Clafer" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>clafer.ecore</foreignModel>
+  <genPackages prefix="Clafer" basePackage="com.clafer4emf" disposableProviderFactory="true"
+      ecorePackage="clafer.ecore#/">
+    <genClasses image="false" ecoreClass="clafer.ecore#//Element"/>
+    <genClasses image="false" ecoreClass="clafer.ecore#//CElement"/>
+    <genClasses ecoreClass="clafer.ecore#//Clafer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute clafer.ecore#//Clafer/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute clafer.ecore#//Clafer/isAbstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference clafer.ecore#//Clafer/cElements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference clafer.ecore#//Clafer/cSuper"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference clafer.ecore#//Clafer/cTarget"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference clafer.ecore#//Clafer/cCardinality"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference clafer.ecore#//Clafer/cGroupCardinality"/>
+    </genClasses>
+    <genClasses ecoreClass="clafer.ecore#//ClaferModel"/>
+    <genClasses image="false" ecoreClass="clafer.ecore#//CInterval">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute clafer.ecore#//CInterval/Min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute clafer.ecore#//CInterval/Max"/>
+    </genClasses>
+    <genClasses ecoreClass="clafer.ecore#//GCardInterval"/>
+    <genClasses ecoreClass="clafer.ecore#//CardInterval"/>
+  </genPackages>
+</genmodel:GenModel>
