@@ -1,0 +1,13 @@
+* [What formalisms exist to describe the translation of an abstract syntax tree into another formal language?](http://cstheory.stackexchange.com/questions/6706/what-formalisms-exist-to-describe-the-translation-of-an-abstract-syntax-tree-int
+)
+* [Tree rewriting in ANTLR v4](https://theantlrguy.atlassian.net/wiki/display/~admin/2012/12/08/Tree+rewriting+in+ANTLR+v4)
+* [TXL: Tree Transformation Language](http://www.program-transformation.org/Transform/TXL)
+* [TXL - Running example](http://www.txl.ca/tour/tour16.html)
+* [Tree Rewriting](http://www.program-transformation.org/Transform/TreeRewriting)
+* [Program Transformation](http://www.program-transformation.org/Transform/ProgramTransformation)
+* [Stratego/XT is a language and toolset for program transformation](http://strategoxt.org/)
+* [What's the difference between term rewriting and pattern matching?](http://cstheory.stackexchange.com/questions/6256/whats-the-difference-between-term-rewriting-and-pattern-matching)
+* [About The ANTLR Parser Generator](http://www.antlr.org/about.html)
+* [ANTLR Java IDE Integration](https://theantlrguy.atlassian.net/wiki/display/ANTLR4/Java+IDE+Integration)
+* [ANTLR 4 Documentation](https://theantlrguy.atlassian.net/wiki/display/ANTLR4/ANTLR+4+Documentation)
+* [ANTLR 4 Grammars written for ANTLR v4 - GitHub](https://github.com/antlr/grammars-v4)
