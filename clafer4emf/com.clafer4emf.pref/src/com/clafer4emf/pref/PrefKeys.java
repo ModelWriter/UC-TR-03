@@ -9,4 +9,7 @@ public interface PrefKeys {
 
 	String ATL_KEY = "ATL";
 	String ATL_VALUE = "transformation.atl";
+	
+	String JAVA_KEY = "Java";
+	String JAVA_VALUE = "transformation.java";
 }
