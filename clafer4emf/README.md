@@ -11,3 +11,5 @@
 * [ANTLR Java IDE Integration](https://theantlrguy.atlassian.net/wiki/display/ANTLR4/Java+IDE+Integration)
 * [ANTLR 4 Documentation](https://theantlrguy.atlassian.net/wiki/display/ANTLR4/ANTLR+4+Documentation)
 * [ANTLR 4 Grammars written for ANTLR v4 - GitHub](https://github.com/antlr/grammars-v4)
+* [LALR Parser Generator](http://lpg.sourceforge.net/)
+* [The OCLinEcore Language](http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.ocl.doc%2Fhelp%2FGettingStarted.html)
