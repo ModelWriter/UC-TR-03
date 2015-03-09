@@ -8,6 +8,7 @@
 * [Stratego/XT is a language and toolset for program transformation](http://strategoxt.org/)
 * [What's the difference between term rewriting and pattern matching?](http://cstheory.stackexchange.com/questions/6256/whats-the-difference-between-term-rewriting-and-pattern-matching)
 * [About The ANTLR Parser Generator](http://www.antlr.org/about.html)
+* [Getting Started with ANTLR v4](https://theantlrguy.atlassian.net/wiki/display/ANTLR4/Getting+Started+with+ANTLR+v4)
 * [ANTLR Java IDE Integration](https://theantlrguy.atlassian.net/wiki/display/ANTLR4/Java+IDE+Integration)
 * [ANTLR 4 Documentation](https://theantlrguy.atlassian.net/wiki/display/ANTLR4/ANTLR+4+Documentation)
 * [ANTLR 4 Grammars written for ANTLR v4 - GitHub](https://github.com/antlr/grammars-v4)
